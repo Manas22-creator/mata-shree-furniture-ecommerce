@@ -1,4 +1,4 @@
-#🪑 Mata Shree Furniture – Full-Stack E-commerce Platform
+🪑 Mata Shree Furniture – Full-Stack E-commerce Platform
 
 🌐 Live Demo
 (Add your live deployment link here once deployed)
