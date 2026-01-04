@@ -791,6 +791,12 @@ main {
     background-color: rgba(58, 138, 110, 0.05);
 }
 
+.form-container{
+    margin: 10px;
+    padding: 10px;
+}
+
+
 .logout-btn-mobile {
     background: var(--clr-accent-green);
     border: none;
