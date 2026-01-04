@@ -82,6 +82,7 @@ img {
     margin: 0 auto;
     padding: 0 15px;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 /* Fix all sections */
