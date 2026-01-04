@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 
 // --- Initial State ---
 // Check localStorage to see if a user session already exists.
@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }) => {
                 },
             };
 
-            const { data } = await axios.post('/api/users/login', { email, password }, config);
+            const { data } = await api.post('/api/users/login', { email, password }, config);
 
             dispatch({
                 type: 'USER_LOGIN_SUCCESS',
@@ -103,7 +103,7 @@ export const AuthProvider = ({ children }) => {
                 },
             };
 
-            const { data } = await axios.post('/api/users/register', { name, email, password }, config);
+            const { data } = await api.post('/api/users/register', { name, email, password }, config);
 
             // On successful registration, we immediately log the user in.
             dispatch({

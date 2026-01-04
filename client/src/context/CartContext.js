@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useContext, useEffect, useCallback } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { AuthContext } from './AuthContext';
 
 // --- Action Types ---
@@ -62,7 +62,7 @@ export const CartProvider = ({ children }) => {
 
         try {
             dispatch({ type: CART_REQUEST });
-            const { data } = await axios.get('/api/cart', config);
+            const { data } = await api.get('/api/cart', config);
             dispatch({ type: CART_SUCCESS, payload: data });
         } catch (error) {
             dispatch({ type: CART_FAIL, payload: error.response?.data.message || error.message });
@@ -76,7 +76,7 @@ export const CartProvider = ({ children }) => {
 
         try {
             dispatch({ type: CART_REQUEST });
-            const { data } = await axios.post('/api/cart', { productId, quantity }, config);
+            const { data } = await api.post('/api/cart', { productId, quantity }, config);
             dispatch({ type: CART_SUCCESS, payload: data });
         } catch (error) {
             dispatch({ type: CART_FAIL, payload: error.response?.data.message || error.message });
@@ -92,7 +92,7 @@ export const CartProvider = ({ children }) => {
         try {
             dispatch({ type: CART_REQUEST });
             // The DELETE request now returns the updated cart array from the server.
-            const { data } = await axios.delete(`/api/cart/${productId}`, config);
+            const { data } = await api.delete(`/api/cart/${productId}`, config);
             // We dispatch this new array to update the state.
             dispatch({ type: CART_SUCCESS, payload: data });
         } catch (error) {

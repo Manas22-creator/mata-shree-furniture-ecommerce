@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import ProductCard from '../components/ProductCard';
 
 const ProductsPage = () => {
@@ -20,7 +20,7 @@ const ProductsPage = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const { data } = await axios.get('/api/products');
+                const { data } = await api.get('/api/products');
                 setProducts(data);
                 setFilteredProducts(data); // Initially, show all products
                 setLoading(false);

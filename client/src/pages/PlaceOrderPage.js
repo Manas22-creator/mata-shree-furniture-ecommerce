@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { CartContext } from '../context/CartContext';
-import axios from 'axios';
+import api from '../api';
 
 // Helper function to load a script
 const loadScript = (src) => {
@@ -66,13 +66,13 @@ const PlaceOrderPage = () => {
                 product: item.product._id 
             }));
             
-            const { data: createdOrder } = await axios.post('/api/orders', {
+            const { data: createdOrder } = await api.post('/api/orders', {
                 orderItems, shippingAddress, paymentMethod: 'Razorpay',
                 itemsPrice, taxPrice, shippingPrice, totalPrice
             }, config);
 
             // 2. Create the Razorpay order
-            const { data: razorpayOrder } = await axios.post(
+            const { data: razorpayOrder } = await api.post(
                 `/api/orders/${createdOrder._id}/create-razorpay-order`, {}, config
             );
 
@@ -87,7 +87,7 @@ const PlaceOrderPage = () => {
                 handler: async function (response) {
                     // This handler function has access to everything in scope
                     try {
-                        await axios.post('/api/orders/verify-payment', {
+                        await api.post('/api/orders/verify-payment', {
                             ...response,
                             order_id: createdOrder._id,
                         }, config); // getConfig is not needed here as config is in scope
