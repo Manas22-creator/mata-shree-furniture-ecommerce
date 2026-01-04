@@ -22,8 +22,15 @@ app.use(cors());
 app.use(express.json({ extended: false }));
 
 // Serve static files from the public directory
-// This allows the frontend to access images at: /assets/products/royal-king-bed.jpg
-app.use(express.static('public'));
+// This allows requests to: /assets/products/royal-king-bed.JPG
+app.use(express.static('public', {
+    setHeaders: (res, path) => {
+        // Set cache headers for images
+        if (path.match(/\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/)) {
+            res.set('Cache-Control', 'public, max-age=3600');
+        }
+    }
+}));
 
 // A simple test route
 app.get('/', (req, res) => res.send('API Running'));

@@ -1,4 +1,32 @@
 const Product = require('../models/product.model.js');
+const path = require('path');
+const fs = require('fs');
+
+// Helper function to find the correct image file (case-insensitive)
+const findImageFile = (imagePath) => {
+    if (!imagePath) return null;
+    
+    // If it's already a full URL, return as is
+    if (imagePath.startsWith('http')) return imagePath;
+    
+    // Get the base name without extension
+    const dir = path.dirname(imagePath);
+    const nameWithoutExt = path.parse(imagePath).name;
+    
+    // Try to find file with different extensions (jpg, JPG, jpeg, JPEG, png, PNG)
+    const extensions = ['.jpg', '.JPG', '.jpeg', '.JPEG', '.png', '.PNG'];
+    const publicDir = path.join(__dirname, '..', 'public');
+    
+    for (const ext of extensions) {
+        const fullPath = path.join(publicDir, dir, nameWithoutExt + ext);
+        if (fs.existsSync(fullPath)) {
+            return `${dir}/${nameWithoutExt}${ext}`;
+        }
+    }
+    
+    // If not found, return the original path
+    return imagePath;
+};
 
 // Helper function to construct full image URL
 const getFullImageUrl = (imagePath) => {
@@ -7,11 +35,14 @@ const getFullImageUrl = (imagePath) => {
     // If it's already a full URL, return as is
     if (imagePath.startsWith('http')) return imagePath;
     
-    // Otherwise, prepend the API base URL
-    const apiUrl = process.env.API_BASE_URL || 'https://mata-shree-furniture-ecommerce.onrender.com';
+    // Find the correct file (case-insensitive)
+    const correctImagePath = findImageFile(imagePath);
     
-    // Ensure imagePath starts with / for proper URL formation
-    const cleanPath = imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
+    // Prepend the API base URL
+    const apiUrl = process.env.API_BASE_URL || 'https://mata-shree-furniture-ecommerce-1.onrender.com';
+    
+    // Ensure path starts with / for proper URL formation
+    const cleanPath = correctImagePath.startsWith('/') ? correctImagePath : `/${correctImagePath}`;
     
     return `${apiUrl}${cleanPath}`;
 };
