@@ -1,13 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import React, { useState } from "react";
 import API from "../api";
-
-await API.post("/api/users/register", {
-  name,
-  email,
-  password,
-});
 
 const RegisterPage = () => {
     const [name, setName] = useState('');
@@ -35,6 +30,31 @@ const RegisterPage = () => {
             register(name, email, password);
         }
     };
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    try {
+      await API.post("/api/users/register", {
+        name,
+        email,
+        password,
+      });
+
+      // optional: redirect to login
+      window.location.href = "/login";
+    } catch (err) {
+      setError(
+        err.response?.data?.message || "Registration failed"
+      );
+    }
+  };
+
 
     return (
         <div className="form-container">
