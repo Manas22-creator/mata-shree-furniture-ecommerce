@@ -1,0 +1,81 @@
+mata-shree-furniture-ecommerce/
+│
+├── 📁 client/                       // All our React Front-End Code
+│   ├── 📁 public/
+│   │   ├── 📄 index.html           // The single HTML file shell for our React App
+│   │   ├── 📄 favicon.ico          // Browser tab icon
+│   │   └── 📄 manifest.json         // PWA configuration
+│   │
+│   ├── 📁 src/
+│   │   ├── 📁 assets/             // All static images and icons
+│   │   │   └── 📁 products/
+│   │   │       ├── 📄 comfort-sofa.jpg
+│   │   │       ├── 📄 executive-chair.jpg
+│   │   │       ├── 📄 l-shape-sofa.jpg
+│   │   │       ├── 📄 modern-wardrobe.jpg
+│   │   │       ├── 📄 queen-size-bed.jpg
+│   │   │       └── 📄 royal-king-bed.jpg
+│   │   │
+│   │   ├── 📁 components/         // Reusable UI components
+│   │   │   ├── 📄 CheckoutForm.js   // Stripe's secure payment form
+│   │   │   ├── 📄 Footer.js         // Site-wide footer
+│   │   │   ├── 📄 Navbar.js         // Site-wide navigation bar
+│   │   │   ├── 📄 ProductCard.js    // Displays a single product in a grid
+│   │   │   └── 📄 ProtectedRoute.js // Prevents access to pages unless logged in
+│   │   │
+│   │   ├── 📁 context/            // Global state management
+│   │   │   ├── 📄 AuthContext.js     // Manages user login state, token, and info
+│   │   │   └── 📄 CartContext.js     // Manages cart items and shipping address
+│   │   │
+│   │   ├── 📁 pages/              // Main page components
+│   │   │   ├── 📄 CartPage.js         // Displays items in the shopping cart
+│   │   │   ├── 📄 LoginPage.js       // User login form
+│   │   │   ├── 📄 PlaceOrderPage.js   // Final order summary and payment screen
+│   │   │   ├── 📄 ProductsPage.js     // Main page displaying all products
+│   │   │   ├── 📄 RegisterPage.js     // User registration form
+│   │   │   └── 📄 ShippingPage.js     // Form for collecting shipping address
+│   │   │
+│   │   ├── 📄 App.css               // Main global stylesheet
+│   │   ├── 📄 App.js               // Main application component with routing
+│   │   ├── 📄 index.css            // Base CSS (usually minimal changes)
+│   │   └── 📄 index.js              // Entry point for React, renders App.js
+│   │
+│   ├── 📄 .gitignore                // Ignores node_modules for the client
+│   ├── 📄 package.json             // Front-end dependencies and scripts
+│   └── 📄 package-lock.json        // Exact dependency versions
+│
+├── 📁 server/                       // All our Node.js & Express Back-End Code
+│   ├── 📁 config/
+│   │   ├── 📄 db.js                 // Database connection logic
+│   │   └── 📄 stripe.js            // Stripe initialization
+│   │
+│   ├── 📁 controllers/
+│   │   ├── 📄 authController.js     // Logic for user registration and login
+│   │   ├── 📄 cartController.js     // Logic for adding/removing cart items
+│   │   ├── 📄 orderController.js    // Logic for creating orders and payments
+│   │   └── 📄 productController.js // Logic for fetching products
+│   │
+│   ├── 📁 data/
+│   │   └── 📄 products.js           // Initial product data for the seeder
+│   │
+│   ├── 📁 middleware/
+│   │   └── 📄 authMiddleware.js   // Protects routes by verifying JWT
+│   │
+│   ├── 📁 models/
+│   │   ├── 📄 order.model.js        // Mongoose schema for Orders
+│   │   ├── 📄 product.model.js     // Mongoose schema for Products
+│   │   └── 📄 user.model.js        // Mongoose schema for Users (with cart)
+│   │
+│   ├── 📁 routes/
+│   │   ├── 📄 auth.routes.js      // API routes for /api/users (login/register)
+│   │   ├── 📄 cart.routes.js      // API routes for /api/cart
+│   │   ├── 📄 order.routes.js     // API routes for /api/orders
+│   │   └── 📄 product.routes.js   // API routes for /api/products
+│   │
+│   ├── 📄 .env                      // Stores secret keys (DB URI, JWT, Stripe)
+│   ├── 📄 package.json             // Back-end dependencies and scripts
+│   ├── 📄 package-lock.json        // Exact dependency versions
+│   ├── 📄 seeder.js                // Script to populate the database with initial data
+│   └── 📄 server.js                 // The main entry point for the back-end Express server
+│
+└── 📄 .gitignore                    // Main gitignore to exclude both node_modules folders```
