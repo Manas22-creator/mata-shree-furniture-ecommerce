@@ -1,7 +1,7 @@
 const products = [
     {
         name: 'Royal King Size Bed',
-        image: '/assets/products/royal-king-bed.jpg',
+        image: '/assets/products/royal-king-bed.JPG',
         description: 'Luxurious king size bed with premium wood finish and intricate headboard design. Built for comfort and durability.',
         category: 'Beds',
         price: 499.99,
@@ -9,7 +9,7 @@ const products = [
     },
     {
         name: 'Comfort Sofa Set',
-        image: '/assets/products/comfort-sofa.jpg',
+        image: '/assets/products/comfort-sofa.JPG',
         description: 'Premium 3+2 seater sofa set with soft cushioning and high-quality fabric. Perfect for modern living rooms.',
         category: 'Sofas',
         price: 799.99,
@@ -25,7 +25,7 @@ const products = [
     },
     {
         name: 'Executive Chair',
-        image: '/assets/products/executive-chair.jpg',
+        image: '/assets/products/executive-chair.JPG',
         description: 'Ergonomic office chair with adjustable height, lumbar support, and a comfortable mesh back.',
         category: 'Chairs',
         price: 129.00,
@@ -33,7 +33,7 @@ const products = [
     },
     {
         name: 'Queen Size Bed with Storage',
-        image: '/assets/products/queen-size-bed.jpg',
+        image: '/assets/products/queen-size-bed.JPG',
         description: 'Elegant queen size bed featuring hydraulic under-bed storage, perfect for optimizing bedroom space.',
         category: 'Beds',
         price: 429.99,
