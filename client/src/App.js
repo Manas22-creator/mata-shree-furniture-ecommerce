@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ProductDetailPage from './pages/ProductDetailPage';
 
 // Import the global stylesheet. This is crucial for the design.
 import './App.css';
@@ -36,6 +37,7 @@ function App() {
           {/* --- Public Routes --- */}
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="/product/:id" element={<ProductDetailPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<LoginPage />} />

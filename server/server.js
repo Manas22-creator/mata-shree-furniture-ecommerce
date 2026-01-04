@@ -21,6 +21,10 @@ const app = express();
 app.use(cors());
 app.use(express.json({ extended: false }));
 
+// Serve static files from the public directory
+// This allows the frontend to access images at: /assets/products/royal-king-bed.jpg
+app.use(express.static('public'));
+
 // A simple test route
 app.get('/', (req, res) => res.send('API Running'));
 
