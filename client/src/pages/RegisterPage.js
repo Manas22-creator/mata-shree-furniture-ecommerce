@@ -1,117 +1,99 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
-import React, { useState } from "react";
-import API from "../api";
+import React, { useState, useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const RegisterPage = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [message, setMessage] = useState(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState(null);
 
-    const navigate = useNavigate();
-    const { register, userInfo, loading, error } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { register, userInfo, loading, error } = useContext(AuthContext);
 
-    // Redirect if already logged in
-    useEffect(() => {
-        if (userInfo) {
-            navigate('/'); // Redirect to homepage
-        }
-    }, [userInfo, navigate]);
+  // Redirect if already logged in
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/");
+    }
+  }, [userInfo, navigate]);
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-        if (password !== confirmPassword) {
-            setMessage('Passwords do not match');
-        } else {
-            setMessage(null);
-            register(name, email, password);
-        }
-    };
-
-  const submitHandler = async (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      setMessage("Passwords do not match");
       return;
     }
 
-    try {
-      await API.post("/api/users/register", {
-        name,
-        email,
-        password,
-      });
-
-      // optional: redirect to login
-      window.location.href = "/login";
-    } catch (err) {
-      setError(
-        err.response?.data?.message || "Registration failed"
-      );
-    }
+    setMessage(null);
+    register(name, email, password);
   };
 
+  return (
+    <div className="form-container">
+      <h1>Sign Up</h1>
 
-    return (
-        <div className="form-container">
-            <h1>Sign Up</h1>
-            {message && <p className="error-message">{message}</p>}
-            {error && <p className="error-message">{error}</p>}
-            {loading && <p>Loading...</p>}
-            <form onSubmit={submitHandler}>
-                <div className="form-group">
-                    <label>Name</label>
-                    <input
-                        type="text"
-                        placeholder="Enter name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Email Address</label>
-                    <input
-                        type="email"
-                        placeholder="Enter email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        placeholder="Enter password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Confirm Password</label>
-                    <input
-                        type="password"
-                        placeholder="Confirm password"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                        required
-                    />
-                </div>
-                <button type="submit" disabled={loading} className="btn-submit">
-                    Register
-                </button>
-            </form>
-            <div className="form-redirect">
-                Have an Account? <Link to="/login">Login</Link>
-            </div>
+      {message && <p className="error-message">{message}</p>}
+      {error && <p className="error-message">{error}</p>}
+      {loading && <p>Loading...</p>}
+
+      <form onSubmit={submitHandler}>
+        <div className="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            placeholder="Enter name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
         </div>
-    );
+
+        <div className="form-group">
+          <label>Email Address</label>
+          <input
+            type="email"
+            placeholder="Enter email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            placeholder="Enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            placeholder="Confirm password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <button type="submit" disabled={loading} className="btn-submit">
+          Register
+        </button>
+      </form>
+
+      <div className="form-redirect">
+        Have an Account? <Link to="/login">Login</Link>
+      </div>
+    </div>
+  );
 };
 
 export default RegisterPage;
