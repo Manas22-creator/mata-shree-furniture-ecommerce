@@ -810,14 +810,43 @@ DEBUGGING NOTES:
         overflow-x: hidden;
     }
 
-    .footer-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-bottom: 1.5rem;
-        width: 100%;
-        max-width: 100%;
-    }
+    
+
+    .footer-links {
+    display: block;
+    text-align: center;
+    flex: 1;
+    padding: 0 1rem;
+  }
+
+
+
+  /* About section full width */
+  .footer-about {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  /* Contact info full width at bottom */
+  .footer-contact {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 2rem;
+  }
+    .footer-links ul,
+  .footer-contact ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links ul li,
+  .footer-contact ul li {
+    text-align: center;
+  }
 
     .footer-about {
         text-align: center;
@@ -1426,6 +1455,7 @@ DEBUGGING NOTES:
 
     
 
+
     .form-row {
         flex-direction: column;
     }
@@ -1492,6 +1522,50 @@ DEBUGGING NOTES:
         font-size: 0.8rem;
         gap: 1rem;
     }
+
+    
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns for Quick Links and Categories */
+    gap: 3rem;
+    align-items: start;
+}
+
+/* About section on top */
+.footer-about {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Quick Links & Categories - centered side by side */
+.footer-links {
+    display: block;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+/* Contact Info at bottom full width */
+.footer-contact {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Center list items */
+.footer-links ul,
+.footer-contact ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li,
+.footer-contact ul li {
+    text-align: center;
+}
 
     /* --- About Page Styles --- */
     .story-content {
