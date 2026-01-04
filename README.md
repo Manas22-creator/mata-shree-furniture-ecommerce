@@ -10,12 +10,12 @@ This project transforms a static furniture design into a dynamic online store wi
 
 Mata Shree Furniture allows customers to:
 
-Browse a dynamic catalog of furniture products with real-time search and category filters
-Register and log in securely with hashed passwords and JWT-based authentication
-Maintain a persistent shopping cart across sessions and devices
-Complete a multi-step checkout, including shipping details
-Make secure online payments via Razorpay integration
-Access a fully responsive UI optimized for mobile, tablet, and desktop
+Browse a dynamic catalog of furniture products with real-time search and category filters  
+Register and log in securely with hashed passwords and JWT-based authentication  
+Maintain a persistent shopping cart across sessions and devices  
+Complete a multi-step checkout, including shipping details  
+Make secure online payments via Razorpay integration  
+Access a fully responsive UI optimized for mobile, tablet, and desktop  
 
 This project demonstrates end-to-end full-stack development skills, including database modeling, RESTful API design, secure authentication, state management, and pixel-perfect responsive UI.
 
