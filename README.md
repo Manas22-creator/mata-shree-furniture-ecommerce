@@ -11,15 +11,10 @@ This project transforms a static furniture design into a dynamic online store wi
 Mata Shree Furniture allows customers to:
 
 Browse a dynamic catalog of furniture products with real-time search and category filters
-
 Register and log in securely with hashed passwords and JWT-based authentication
-
 Maintain a persistent shopping cart across sessions and devices
-
 Complete a multi-step checkout, including shipping details
-
 Make secure online payments via Razorpay integration
-
 Access a fully responsive UI optimized for mobile, tablet, and desktop
 
 This project demonstrates end-to-end full-stack development skills, including database modeling, RESTful API design, secure authentication, state management, and pixel-perfect responsive UI.
@@ -27,21 +22,21 @@ This project demonstrates end-to-end full-stack development skills, including da
 🚀 Core Features
 Front-End Features
 
-✅ Dynamic Product Catalog – Fetches products from MongoDB and displays them with filtering and search
-✅ Responsive Design – Mobile-first, modern layouts using CSS Flexbox and Grid
-✅ Protected Routes – Shipping and checkout pages accessible only to logged-in users
-✅ Multi-Step Checkout – Cart → Shipping → Order Summary → Payment
-✅ Reusable Components – Navbar, Footer, ProductCard, ProtectedRoute, etc.
-✅ State Management – AuthContext & CartContext for global state across the app
+✅ Dynamic Product Catalog – Fetches products from MongoDB and displays them with filtering and search  
+✅ Responsive Design – Mobile-first, modern layouts using CSS Flexbox and Grid  
+✅ Protected Routes – Shipping and checkout pages accessible only to logged-in users  
+✅ Multi-Step Checkout – Cart → Shipping → Order Summary → Payment  
+✅ Reusable Components – Navbar, Footer, ProductCard, ProtectedRoute, etc.  
+✅ State Management – AuthContext & CartContext for global state across the app  
 
 Back-End Features
 
-✅ Secure User Authentication – JWT tokens & bcrypt.js password hashing
-✅ Persistent Shopping Cart – Server-side cart stored in MongoDB
-✅ Order Management – Creates orders and updates status after payment verification
-✅ Payment Gateway Integration – Razorpay checkout modal and server-side verification
-✅ RESTful API – Organized, secure endpoints for users, products, cart, and orders
-✅ Middleware – Custom authentication middleware protects sensitive routes
+✅ Secure User Authentication – JWT tokens & bcrypt.js password hashing  
+✅ Persistent Shopping Cart – Server-side cart stored in MongoDB  
+✅ Order Management – Creates orders and updates status after payment verification  
+✅ Payment Gateway Integration – Razorpay checkout modal and server-side verification  
+✅ RESTful API – Organized, secure endpoints for users, products, cart, and orders  
+✅ Middleware – Custom authentication middleware protects sensitive routes  
 
 🛠️ Technology Stack
 Frontend
