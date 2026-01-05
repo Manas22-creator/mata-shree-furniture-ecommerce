@@ -12,86 +12,36 @@ const RegisterPage = () => {
   const navigate = useNavigate();
   const { register, userInfo, loading, error } = useContext(AuthContext);
 
-  // Redirect if already logged in
   useEffect(() => {
-    if (userInfo) {
-      navigate("/");
-    }
+    if (userInfo) navigate("/");
   }, [userInfo, navigate]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-
     if (password !== confirmPassword) {
       setMessage("Passwords do not match");
-      return;
+    } else {
+      setMessage(null);
+      register(name, email, password);
     }
-
-    setMessage(null);
-    register(name, email, password);
   };
 
   return (
     <div className="form-container">
       <h1>Sign Up</h1>
-
       {message && <p className="error-message">{message}</p>}
       {error && <p className="error-message">{error}</p>}
       {loading && <p>Loading...</p>}
 
       <form onSubmit={submitHandler}>
-        <div className="form-group">
-          <label>Name</label>
-          <input
-            type="text"
-            placeholder="Enter name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Email Address</label>
-          <input
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Enter password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Confirm Password</label>
-          <input
-            type="password"
-            placeholder="Confirm password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </div>
-
-        <button type="submit" disabled={loading} className="btn-submit">
-          Register
-        </button>
+        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
+        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+        <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" />
+        <button type="submit">Register</button>
       </form>
 
-      <div className="form-redirect">
-        Have an Account? <Link to="/login">Login</Link>
-      </div>
+      <Link to="/login">Already have an account?</Link>
     </div>
   );
 };
