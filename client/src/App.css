@@ -1652,7 +1652,7 @@ main {
 
 .cart-item {
     display: grid;
-    grid-template-columns: 100px 1fr 120px 120px 50px;
+    /* grid-template-columns: 100px 1fr 120px 120px 50px; */
     gap: 1.5rem;
     align-items: center;
     padding: 1.5rem;
