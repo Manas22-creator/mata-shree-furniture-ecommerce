@@ -954,8 +954,8 @@ main {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 3rem;
+    /* grid-template-columns: 2fr 1fr 1fr 1.5fr; */
+    gap: 1rem;
     margin-bottom: 2rem;
     text-align: left;
     width: 100%;
