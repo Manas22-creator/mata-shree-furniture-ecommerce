@@ -37,11 +37,12 @@ const registerUser = async (req, res) => {
             res.status(400).json({ message: 'Invalid user data' });
         }
    } catch (error) {
-  console.error("REGISTER ERROR:", error.message);
-  res.status(500).json({ message: error.message });
+    console.error('REGISTER ERROR:', error);
+    res.status(500).json({
+        message: error.message || 'Server Error',
+        stack: process.env.NODE_ENV === 'production' ? null : error.stack,
+    });
 }
-};
-
 // @desc    Auth user & get token (Login)
 // @route   POST /api/users/login
 // @access  Public
