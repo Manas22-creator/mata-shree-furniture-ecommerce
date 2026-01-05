@@ -1,7 +1,7 @@
-🪑 Mata Shree Furniture – Full-Stack E-commerce Platform
+# 🪑 Mata Shree Furniture – Full-Stack E-commerce Platform
 
 🌐 Live Demo
-(Add your live deployment link here once deployed)
+[🔗 Visit the Live Website – Furniture E-Commerce App](https://mata-shree-furniture-ecommerce-1.onrender.com/)
 
 A modern, full-featured e-commerce web application built from scratch using the MERN stack (MongoDB, Express.js, React, Node.js).
 This project transforms a static furniture design into a dynamic online store with user authentication, persistent cart, multi-step checkout, and secure payment integration.
@@ -90,6 +90,7 @@ mata-shree-furniture-ecommerce/
 │       └── index.js        # React entry point
 ├── server/                 # Node.js + Express back-end
 │   ├── config/             # DB connection, Stripe config
+│   ├── data/   
 │   ├── controllers/        # API route logic
 │   ├── models/             # Mongoose schemas (User, Product, Order)
 │   ├── routes/             # Express routes
