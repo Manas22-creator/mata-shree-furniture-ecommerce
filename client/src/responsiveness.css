@@ -7,15 +7,6 @@ This file handles all responsive design breakpoints:
 - Tablet: 768px - 1024px  
 - Desktop: > 1024px
 
-DEBUGGING NOTES:
-- Fixed text overflow on small devices
-- Fixed navbar menu positioning
-- Fixed grid column issues
-- Fixed image sizing problems
-- Ensured touch-friendly sizes (44px minimum)
-- Fixed form field stacking
-*/
-
 /* ============================================
    MOBILE STYLES (< 768px)
    ============================================ */
@@ -820,6 +811,28 @@ DEBUGGING NOTES:
   }
 
 
+
+   /* Hide Categories (2nd footer-links block) */
+  .footer-grid .footer-links:nth-of-type(3) {
+    display: none;
+  }
+
+  /* Center Quick Links */
+  .footer-links {
+    text-align: center;
+  }
+
+  .footer-links ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links ul li {
+    text-align: center;
+  }
 
   /* About section full width */
   .footer-about {
@@ -2278,6 +2291,41 @@ section {
    OUR JOURNEY – PROPER MOBILE ALIGNMENT FIX
    ===================================================== */
 @media (max-width: 767px) {
+
+   
+  .cart-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "image remove"
+      "details details"
+      "quantity price";
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .cart-item-image {
+    grid-area: image;
+  }
+
+  .remove-btn {
+    grid-area: remove;
+    justify-self: end;
+  }
+
+  .cart-item-details {
+    grid-area: details;
+  }
+
+  .cart-item-quantity {
+    grid-area: quantity;
+    justify-self: start;
+  }
+
+  .cart-item-price {
+    grid-area: price;
+    justify-self: end;
+  }
 
   /* TIMELINE CONTAINER */
   .timeline {
