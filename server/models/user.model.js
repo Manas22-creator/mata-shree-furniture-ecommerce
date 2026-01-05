@@ -34,20 +34,16 @@ const userSchema = new mongoose.Schema({
 });
 
 // This method will run before a document is saved
-userSchema.pre('save', async function (next) {
-    try {
-        // Only hash the password if it has been modified (or is new)
-        if (!this.isModified('password')) {
-            return next(); // ✅ MUST call next()
-        }
-
-        const salt = await bcrypt.genSalt(10);
-        this.password = await bcrypt.hash(this.password, salt);
-        next();
-    } catch (error) {
-        next(error);
+userSchema.pre('save', async function () {
+    // Only hash password if it is new or modified
+    if (!this.isModified('password')) {
+        return;
     }
+
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
 });
+
 
 const User = mongoose.model('User', userSchema);
 
