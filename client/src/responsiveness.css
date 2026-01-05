@@ -2375,12 +2375,9 @@ section {
 /* FIX ORDER SUMMARY CUTTING ISSUE ON SMALL DEVICES */
 @media (max-width: 768px) {
 
-  .cart-wrapper {
-    display: grid;
-    grid-template-columns: 1fr;   /* SINGLE COLUMN ONLY */
-    grid-auto-flow: row;
-    row-gap: 1.5rem;
-  }
+      .cart-wrapper {
+        grid-template-columns: 1fr 300px !important;
+        grid-auto-flow: row;
 
   .cart-items-container {
     grid-column: 1 / -1;
