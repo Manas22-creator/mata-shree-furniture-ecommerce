@@ -75,8 +75,8 @@ const ContactPage = () => {
                                 </li>
                             </ul>
                             <div className="contact-buttons">
-                                <a href="https://wa.me/918355859097" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">WhatsApp Chat</a>
-                                <a href="tel:+918355859097" className="btn btn-call">Call Now</a>
+                                <a href="https://wa.me/917304549106" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">WhatsApp Chat</a>
+                                <a href="tel:+917304549106" className="btn btn-call">Call Now</a>
                             </div>
                         </div>
 
