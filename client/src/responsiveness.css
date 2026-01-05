@@ -2378,6 +2378,7 @@ section {
       .cart-wrapper {
         grid-template-columns: 1fr 300px !important;
         grid-auto-flow: row;
+      }
 
   .cart-items-container {
     grid-column: 1 / -1;
